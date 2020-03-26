@@ -36,3 +36,82 @@
     transform: rotate(360deg);
   }
 }
+
+.ToggleSwitch input[type="checkbox"] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+.ToggleSwitch label {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 200px;
+  height: 100px;
+  background: grey;
+  display: block;
+  border-radius: 100px;
+  position: relative;
+}
+
+.ToggleSwitch label:after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 90px;
+  height: 90px;
+  background: #fff;
+  border-radius: 90px;
+  transition: 0.3s;
+}
+
+.ToggleSwitch input:checked + label {
+  background: #bada55;
+}
+
+.ToggleSwitch input:checked + label:after {
+  left: calc(100% - 5px);
+  transform: translateX(-100%);
+}
+
+.ToggleSwitch label:active:after {
+  width: 130px;
+}
+
+.ProgressBarTiles {
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid lightseagreen;
+  border-radius: 100%;
+  width: 10rem;
+  height: 10rem;
+  background-color: lightskyblue;
+}
+
+.ProgressBarTiles .svg--icon {
+  width: 5rem;
+  height: 5rem;
+}
+
+.ProgressBar {
+  position: relative;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 800px;
+  display: flex;
+  background-color: lavender;
+}
+
+.ProgressBar .progress-line {
+  position: absolute;
+  z-index: 0;
+  height: 10px;
+  width: 100%;
+  background-color: lawngreen;
+  margin: 0;
+  top: 50%;
+  /* background-color: mediumaquamarine; */
+}

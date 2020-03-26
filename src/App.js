@@ -7,20 +7,14 @@ import { data } from "./data";
 import Question from "./components/Question";
 import Dropdown from "./components/Dropdown";
 import Icon from "./components/icons/index";
+import ToggleSwitch from "./components/ToggleSwitch";
+import Helper from "./components/Helper";
+import ProgressBarTiles from "./components/ProgressBarTiles";
+import PropgressBar from "./components/PropgressBar";
+import Accordion from "./components/Accordion";
 
-function* generatorExemple() {
-  let i = 0;
-  while (i < data.length) {
-    console.log(i);
-    yield (<Question type={data[i].type} />);
-    i++;
-  }
-}
-
-const generator = generatorExemple();
 
 function App() {
-  // console.log(data[0].type);
 
   const [state, setstate] = useState({
     step: 0
@@ -67,9 +61,20 @@ function App() {
           name="dropdown"
         />
       </div>
-      {/* <div className="svg-icons-test">
-        <Icon name="cabin" />
-      </div> */}
+      <hr />
+      <ToggleSwitch />
+
+      <hr />
+
+      <Helper />
+
+      <hr />
+
+      <PropgressBar />
+
+      <hr />
+
+      <Accordion title="Title 1" content="voluptatibus numquam fuga nisi doloremque itaque ipsa, maiores neque iure, aliquid laborum quos consequuntur ducimus velit doloribus quaerat cum! Aliquam, quibusdam?" />
     </>
   );
 }
