@@ -3,7 +3,7 @@ import React from "react";
 const CabinIcon = () => {
   return (
     <svg
-      className="svg--icon"
+      className="svg--icon test"
       id="ad2e9aa6-dd58-46dd-8ac4-5cd79a399ac3"
       data-name="Layer 1"
       xmlns="http://www.w3.org/2000/svg"

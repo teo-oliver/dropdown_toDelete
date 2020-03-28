@@ -2,8 +2,8 @@ import React from "react";
 import CabinIcon from "./CabinIcon";
 import UnderConstIcon from "./UnderConstIcon";
 
-const Icon = ({ name }) => {
-  switch (name) {
+const Icon = ({ icon }) => {
+  switch (icon) {
     case "cabin":
       return <CabinIcon />;
     case "construction":

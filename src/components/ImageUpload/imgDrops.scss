@@ -1,0 +1,19 @@
+.dropzone {
+  width: 300px;
+  height: 400px;
+  margin: 5rem auto;
+  border: 5px dashed gray;
+  &.active {
+    border-color: darkblue;
+  }
+  &.accept {
+    border-color: yellowgreen;
+  }
+  &.reject {
+    border-color: red;
+  }
+}
+
+// .dropzone:hover {
+//   border: 2px solid purple;
+// }

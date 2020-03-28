@@ -1,3 +1,7 @@
+body{
+  margin: 0;
+}
+
 .App {
   text-align: center;
 }
@@ -79,39 +83,4 @@
   width: 130px;
 }
 
-.ProgressBarTiles {
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid lightseagreen;
-  border-radius: 100%;
-  width: 10rem;
-  height: 10rem;
-  background-color: lightskyblue;
-}
 
-.ProgressBarTiles .svg--icon {
-  width: 5rem;
-  height: 5rem;
-}
-
-.ProgressBar {
-  position: relative;
-  justify-content: space-between;
-  margin: 0 auto;
-  width: 800px;
-  display: flex;
-  background-color: lavender;
-}
-
-.ProgressBar .progress-line {
-  position: absolute;
-  z-index: 0;
-  height: 10px;
-  width: 100%;
-  background-color: lawngreen;
-  margin: 0;
-  top: 50%;
-  /* background-color: mediumaquamarine; */
-}

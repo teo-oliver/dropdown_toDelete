@@ -1,0 +1,41 @@
+.ImageUpload .image-drop{
+  position: relative;
+  height: 200px;
+  width: 200px;
+  border: 5px dashed purple;
+  margin: auto auto;
+  max-width: 800px;
+  /* background-color: rosybrown; */
+}
+
+.ImageUpload .image-drop:hover{
+  
+  background-color: rosybrown;
+}
+
+/* .ImageUpload .image-drop .svg--icon.test{
+  margin: 2rem !important;
+} */
+
+#e43251fe-2b99-4b63-8176-d5da4893f038{
+  position: absolute;
+  top: 34%;
+  left: 24%;
+}
+
+
+.ImageSmall{
+  height: 80px;
+  min-height: 80px;
+  width: 80px;
+  min-width: 80px;
+  border: 2px solid purple;
+  margin: 1rem 1rem;
+}
+
+.images-list{
+  display: flex;
+  justify-content: center;
+  margin: 1rem auto;
+}
+
