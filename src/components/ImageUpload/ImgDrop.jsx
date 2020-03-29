@@ -34,17 +34,19 @@ const rejectStyle = {
   borderColor: "#ff1744"
 };
 
-const imageMaxSize = 10000000; // Maximum file size (in bytes)
+const imageMaxSize = 100000; // Maximum file size (in bytes)
 
 const ImgDrop = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [isRejected, setIsRejected] = useState(false);
+  const [isToBig, setisToBig] = useState(false);
 
   const handleDrop = useCallback((acceptedFiles, rejectedFiles) => {
     //validation to send only img files
     //call function to upload image
     // spinner indicating uploading
-    if (acceptedFiles) {
+    if (acceptedFiles.length > 0) {
       setIsLoading(true);
       console.log("Acepted", acceptedFiles);
       //
@@ -70,6 +72,20 @@ const ImgDrop = () => {
         )
         .catch("error");
     } else {
+      const rejectedFile = rejectedFiles[0];
+      const rejectedFileType = rejectedFile.type;
+      const rejectedFileSize = rejectedFile.size;
+      if (rejectedFileSize > imageMaxSize) {
+        setisToBig(true);
+        setTimeout(() => {
+          setisToBig(false);
+        }, 3000);
+        // return;
+      }
+      setIsRejected(true);
+      setTimeout(() => {
+        setIsRejected(false);
+      }, 3000);
       console.log("Rejected", rejectedFiles);
     }
 
@@ -85,8 +101,8 @@ const ImgDrop = () => {
   } = useDropzone({
     accept: "image/*",
     multiple: false,
-    onDrop: handleDrop,
     maxSize: imageMaxSize,
+    onDrop: handleDrop,
     disabled: isLoading || success
   });
 
@@ -100,9 +116,6 @@ const ImgDrop = () => {
     [isDragActive, isDragReject]
   );
 
-  // console.log(style);
-  console.log("Loading", isLoading);
-  console.log("Success", success);
   return (
     <div className="container">
       <div
@@ -114,13 +127,17 @@ const ImgDrop = () => {
       >
         <input {...getInputProps()} />
 
-        {!isLoading && !success ? (
+        {!isLoading && !success && !isRejected && !isDragReject && !isToBig ? (
           <p>Drag 'n' drop some files here, or click to select files</p>
         ) : (
           ""
         )}
         {isLoading && <Spinner />}
         {success && <p>This image was uploaded</p>}
+        {!isToBig && (isRejected || isDragReject) && (
+          <p>This type of file is not supported</p>
+        )}
+        {isToBig && <p>This file is to big</p>}
       </div>
     </div>
   );
